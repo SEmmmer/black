@@ -1,10 +1,22 @@
 # -*- coding: utf-8 -*
 import re
 import os
+import sys
 
 black = []
 white = []
-for line in open("aaa.txt", "r"):
+
+white_file = open("white.txt", "r")
+for line in white_file:
+    line = line.split()
+    white.append(line[0])
+
+black_file = open("black.txt", "r")
+for line in black_file:
+    line = line.split()
+    white.append(line[0])
+
+for line in open("file.txt", "r"):
     try:
         array = line.split(":", 2)
         if (array[1] not in black) and (array[1] not in white):
@@ -21,7 +33,20 @@ for line in open("aaa.txt", "r"):
         black_file = open("black.txt", "w")
         for uid in black:
             black_file.writelines(uid)
+            black_file.writelines("\n")
 
+        while_file = open("white.txt", "w")
+        for uid in white:
+            while_file.writelines(uid)
+            while_file.writelines("\n")
+        sys.exit()
 
-    else:
-        print("over")
+black_file = open("black.txt", "w")
+for uid in black:
+    black_file.writelines(uid)
+    black_file.writelines("\n")
+
+while_file = open("white.txt", "w")
+for uid in white:
+    while_file.writelines(uid)
+    while_file.writelines("\n")
