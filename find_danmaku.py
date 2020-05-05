@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*
 import re
 import os
 
-for line in open("file.txt","rb"):
-    print(line)
+for line in open("file.txt", "r"):
+    print("1", line)
 
 
 
