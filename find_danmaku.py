@@ -1,12 +1,17 @@
 import re
 import os
 
-try:
+for line in open("file.txt","rb"):
+    print(line)
 
-    while True:
-        print("hello")
 
-except KeyboardInterrupt:
-    print("KeyboardInterrupt")
-else:
-    print("over")
+
+
+
+#
+# try:
+#
+# except KeyboardInterrupt:
+#     print("KeyboardInterrupt")
+# else:
+#     print("over")
