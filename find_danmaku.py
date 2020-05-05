@@ -2,6 +2,7 @@
 
 black = []
 white = []
+time = 0
 
 white_file = open("white.txt", "r")
 for line in white_file:
@@ -11,13 +12,15 @@ for line in white_file:
 black_file = open("black.txt", "r")
 for line in black_file:
     line = line.split()
-    white.append(line[0])
+    black.append(line[0])
 
+# time = 0
 for line in open("file.txt", "r"):
     try:
         array = line.split(":", 2)
+        time += 1
         if (array[1] not in black) and (array[1] not in white):
-            print("请判断该弹幕是否为引战弹幕，是请输入1，不是请直接回车")
+            print(time, "请判断该弹幕是否为引战弹幕，是请输入1，不是请直接回车")
             print(array[2])
             string = input()
             if string == "1":
@@ -26,7 +29,7 @@ for line in open("file.txt", "r"):
                 white.append(array[1])
         else:
             continue
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, IndexError):
         break
 
 black_file = open("black.txt", "w")
