@@ -31,10 +31,8 @@ for line in open("file.txt", "r"):
 
 black_file = open("black.txt", "w")
 for uid in black:
-    black_file.writelines(uid)
-    black_file.writelines("\n")
+    black_file.writelines(uid + "\n")
 
 while_file = open("white.txt", "w")
 for uid in white:
-    while_file.writelines(uid)
-    while_file.writelines("\n")
+    while_file.writelines(uid + "\n")
