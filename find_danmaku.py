@@ -16,6 +16,8 @@ for line in black_file:
 
 # time = 0
 for line in open("file.txt", "r"):
+    if line[0] == "T":
+        continue
     try:
         array = line.split(":", 2)
         time += 1
