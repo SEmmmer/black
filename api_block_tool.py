@@ -9,7 +9,7 @@ cookies = me.cookie
 get_list = requests.get(block_list, cookies=cookies)
 return_message = json.loads(get_list.text)
 block_man = return_message["data"][0]["uid"]
-
+# 拉取禁言列表，但是仅输出第一位
 print(block_man)
 
 block_url = "https://api.live.bilibili.com/banned_service/v2/Silent/add_block_user"
@@ -19,3 +19,4 @@ data = f"roomid=763869&block_uid=544906812&hour=1&csrf_token={me.user['CSRF']}&c
 block_it = requests.post(block_url, data=data, cookies=cookies, headers=headers)
 return_message = json.loads(block_it.text)
 print(return_message)
+# 禁言一位
