@@ -3,9 +3,14 @@ import me
 import json
 import requests
 
-url = "http://api.live.bilibili.com/liveact/ajaxGetBlockList" + "?roomid=763869" + "&page=1" + "&csrf=bfd59952c846182dcaf59aad5bacba75" + "&csrf_token=bfd59952c846182dcaf59aad5bacba75"
+block_list = "http://api.live.bilibili.com/liveact/ajaxGetBlockList" + "?roomid=763869" + "&page=1" + f"&csrf={me.user['CSRF']}" + f"&csrf_token={me.user['CSRF']}"
 cookies = me.cookie
 
-code = requests.get(url, cookies=cookies)
+code = requests.get(block_list, cookies=cookies)
 text = json.loads(code.text)
-print(text['data'])
+block_man = text["data"][0]["uid"]
+
+print(block_man)
+
+url2 = "https://api.live.bilibili.com/banned_service/v2/Silent/add_block_user" + "?roomid=763869" + f"&block_uid={block_man} " + "&hour=720" + f"&csrf={me.user['CSRF']}" + f"&csrf_token={me.user['CSRF']}"
+
