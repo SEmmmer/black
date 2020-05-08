@@ -32,8 +32,8 @@ def del_block_user(course_id, room_id, csrf):
 
 # 客制化参数在这里调整
 room = 763869
-my_csrf = me.user['CSRF']
-cookies = me.cookie
+cookies = me.cookies
+my_csrf = cookies['bili_jct']
 ##########################
 
 man_list = pull_block_list(room, my_csrf)
