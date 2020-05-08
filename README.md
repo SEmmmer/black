@@ -18,6 +18,10 @@ cookie为python的字典类型
 
 **运行output.py文件**
 
-获得字典格式的cookie信息
+它会帮助你创建运行环境
 
-**新建me.py文件**
+好了，现在我们可以愉快地运行了
+
+api_killer 为评论区拉黑工具
+
+api_block_tool 为直播间禁言工具

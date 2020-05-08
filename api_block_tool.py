@@ -6,7 +6,7 @@ import requests
 
 
 def pull_block_list(room_id, csrf):
-    time.sleep(0.5)
+    time.sleep(0.3)
     block_list = "http://api.live.bilibili.com/liveact/ajaxGetBlockList" + f"?roomid={room_id}" + "&page=1" + f"&csrf={csrf}" + f"&csrf_token={csrf}"
     get_list = requests.get(block_list, cookies=cookies)
     re_message = json.loads(get_list.text)
@@ -14,7 +14,7 @@ def pull_block_list(room_id, csrf):
 
 
 def set_block_user(room_id, csrf, user_uid):
-    time.sleep(0.5)
+    time.sleep(0.3)
     block_url = "https://api.live.bilibili.com/banned_service/v2/Silent/add_block_user"
     headers = {"content-type": "application/x-www-form-urlencoded"}
     data = f"roomid={room_id}&block_uid={user_uid}&hour=720&csrf_token={csrf}&csrf={csrf}&visit_id="
@@ -23,7 +23,7 @@ def set_block_user(room_id, csrf, user_uid):
 
 
 def del_block_user(course_id, room_id, csrf):
-    time.sleep(0.5)
+    time.sleep(0.3)
     del_url = "https://api.live.bilibili.com/banned_service/v1/Silent/del_room_block_user"
     headers = {"content-type": "application/x-www-form-urlencoded"}
     data = f"id={course_id}&roomid={room_id}&csrf_token={csrf}&csrf={csrf}&visit_id="
