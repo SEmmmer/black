@@ -53,6 +53,6 @@ try:
             # 下 次 一 定
         else:
             print(f"用户{line}已禁言")
-        black_list.close()
+    black_list.close()
 except KeyboardInterrupt:
     print("程序已结束")

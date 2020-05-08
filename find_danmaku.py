@@ -8,14 +8,17 @@ white_file = open("white.txt", "r")
 for line in white_file:
     line = line.split()
     white.append(line[0])
+white_file.close()
 
 black_file = open("black.txt", "r")
 for line in black_file:
     line = line.split()
     black.append(line[0])
+black_file.close()
 
 # time = 0
-for line in open("file.txt", "r"):
+file = open("file.txt", "r")
+for line in file:
     if line[0] == "T":
         continue
     try:
@@ -34,10 +37,14 @@ for line in open("file.txt", "r"):
     except (KeyboardInterrupt, IndexError):
         break
 
+file.close()
+
 black_file = open("black.txt", "w")
 for uid in black:
     black_file.writelines(uid + "\n")
+black_file.close()
 
 while_file = open("white.txt", "w")
 for uid in white:
     while_file.writelines(uid + "\n")
+while_file.close()
