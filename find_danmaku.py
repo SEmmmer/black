@@ -16,15 +16,16 @@ for line in black_file:
     black.append(line[0])
 black_file.close()
 
-# time = 0
 file = open("file.txt", "r")
 for line in file:
     if line[0] == "T":
         continue
+
     try:
         array = line.split(":", 2)
         time += 1
         if (array[1] not in black) and (array[1] not in white):
+
             print(time, "请判断该弹幕是否为引战弹幕，是请输入1，不是请直接回车")
             print(array[2])
             string = input()
