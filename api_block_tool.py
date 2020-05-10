@@ -47,13 +47,15 @@ try:
             # 下 次 一 定
         else:
             print(f"用户{line}已禁言")
-    black_list.close()
 
+    # 现在进行列表的拉取和循环720
     for man in man_list:
         if set_block_user(room, my_csrf, man['uid'])['code'] == -400:
             del_block_user(man['id'], room, my_csrf)
             set_block_user(room, my_csrf, man['uid'])
+            black_list.writelines(man['uid'] + "\n")
             print(f"用户{man['uid']}已禁言")
 
+    black_list.close()
 except KeyboardInterrupt:
     print("程序已结束")
