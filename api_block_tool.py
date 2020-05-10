@@ -39,12 +39,6 @@ my_csrf = cookies['bili_jct']
 man_list = pull_block_list(room, my_csrf)
 
 try:
-    for man in man_list:
-        if set_block_user(room, my_csrf, man['uid'])['code'] == -400:
-            del_block_user(man['id'], room, my_csrf)
-            set_block_user(room, my_csrf, man['uid'])
-            print(f"用户{man['uid']}已禁言")
-
     black_list = open("black.txt", "r")
     for line in black_list:
         line = line.split()[0]
@@ -54,5 +48,12 @@ try:
         else:
             print(f"用户{line}已禁言")
     black_list.close()
+
+    for man in man_list:
+        if set_block_user(room, my_csrf, man['uid'])['code'] == -400:
+            del_block_user(man['id'], room, my_csrf)
+            set_block_user(room, my_csrf, man['uid'])
+            print(f"用户{man['uid']}已禁言")
+
 except KeyboardInterrupt:
     print("程序已结束")
