@@ -1,13 +1,10 @@
 # -*— coding: utf-8 -*
-white_str = ["ぺこ", "待機", "待机", "O", "o", "k", "K", "草", "8888", "114", "大丈夫"]
+import pymongo
 
-with open('file.txt', 'r') as r:
-    lines = r.readlines()
-with open('file2.txt', 'w') as w:
-    for l in lines:
-        for word in white_str:
-            if word in lines:
-                continue
-            continue
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+data_base = client['test']
 
-        print(l)
+col = data_base.get_collection('uid')
+uid_list = col.find()
+for i in uid_list:
+    print(i)
