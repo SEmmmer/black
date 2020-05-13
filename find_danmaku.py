@@ -1,27 +1,22 @@
 # -*- coding: utf-8 -*
-import pymongo
+
 
 black = []
 white = []
 time = 0
 # -----------------------------------
-# white_file = open("white.txt", "r")
-# for line in white_file:
-#     line = line.split()
-#     white.append(line[0])
-# white_file.close()
-#
-# black_file = open("black.txt", "r")
-# for line in black_file:
-#     line = line.split()
-#     black.append(line[0])
-# black_file.close()
-# -------------------------------------
+white_file = open("white.txt", "r")
+for line in white_file:
+    line = line.split()
+    white.append(line[0])
+white_file.close()
 
-client = pymongo.MongoClient("mongodb://localhost:27017/")
-# data_base = client['test']
-# col = data_base.get_collection('uid')
-# uid_list = col.find()
+black_file = open("black.txt", "r")
+for line in black_file:
+    line = line.split()
+    black.append(line[0])
+black_file.close()
+# -------------------------------------
 
 file = open("file.txt", "r")
 for line in file:
@@ -47,12 +42,12 @@ for line in file:
 
 file.close()
 
-# black_file = open("black.txt", "w")
-# for uid in black:
-#     black_file.writelines(uid + "\n")
-# black_file.close()
-#
-# while_file = open("white.txt", "w")
-# for uid in white:
-#     while_file.writelines(uid + "\n")
-# while_file.close()
+black_file = open("black.txt", "w")
+for uid in black:
+    black_file.writelines(uid + "\n")
+black_file.close()
+
+while_file = open("white.txt", "w")
+for uid in white:
+    while_file.writelines(uid + "\n")
+while_file.close()
