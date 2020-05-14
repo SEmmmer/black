@@ -4,7 +4,6 @@
 black = []
 white = []
 time = 0
-# -----------------------------------
 white_file = open("white.txt", "r")
 for line in white_file:
     line = line.split()
@@ -16,7 +15,6 @@ for line in black_file:
     line = line.split()
     black.append(line[0])
 black_file.close()
-# -------------------------------------
 
 file = open("file.txt", "r")
 for line in file:

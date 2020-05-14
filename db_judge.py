@@ -23,6 +23,8 @@ try:
                 uid_col.insert_one(doc)
 
         question.delete_one(single)
+        # 处理完该问题
+        # 从弹幕库中删除
 
 except KeyboardInterrupt:
     print("用户终止进程")
