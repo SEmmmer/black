@@ -14,7 +14,7 @@ for line in question_file:
     insert = True
     doc = {
         "uid": array[1],
-        "danmaku": array[2],
+        "danmaku": array[2].split('\n')[0],
         "finish": "no"
     }
 
@@ -22,5 +22,6 @@ for line in question_file:
         insert = False
 
     if insert:
-        question.insert(doc)
+        question.insert_one(doc)
+        print("insert: " + str(doc))
 question_file.close()
