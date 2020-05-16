@@ -7,7 +7,7 @@ uid_col = data_base['uid']
 
 black_file = open("black.txt", "r")
 for line in black_file:
-    if not line:
+    if not line.split("\n")[0]:
         continue
     uid = line.split("\n")[0]
     doc = {
