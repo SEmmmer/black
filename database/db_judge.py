@@ -4,18 +4,17 @@ import pymongo
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 data_base = client['test']
 question = data_base['question']
+uid_col = data_base['uid']
 global regret_uid
 
 try:
     while True:
-        uid_col = data_base['uid']
         single = question.aggregate([{'$sample': {'size': 1}}])
         for doc in single:
             single = doc
 
-            # 每循环一次，更新一次列表
-            # 趁另一个用户不注意提前插入文本
-            # 防止两个用户同时改到一道题
+        # 趁另一个用户不注意提前插入文本
+        # 防止两个用户同时改到一道题
         uid_col.insert_one({"uid": single['uid'], "type": "white"})
         regret_uid = single['uid']
         print(regret_uid)
