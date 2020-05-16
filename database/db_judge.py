@@ -16,6 +16,12 @@ try:
             single = doc
         if not get:
             raise SystemExit("The database is NULL now")
+        if single['finish'] == "yes":
+            continue
+        insert = True
+        for result in uid_col.find({"uid": single['uid']}):
+            insert = False
+            continue
         # 趁另一个用户不注意提前插入文本
         # 防止两个用户同时改到一道题
         uid_col.insert_one({"uid": single['uid'], "type": "white"})
@@ -28,11 +34,11 @@ try:
         if string == '1':
             # 先 斩 后 奏
             uid_col.update_one({"uid": single['uid']}, {"$set": {"type": "black"}}, True)
-        question.delete_many({"danmaku": single['danmaku']})
-        question.delete_many({'uid': single['uid']})
+        question.update_many({"danmaku": single['danmaku']}, {'$set': {'finish': 'yes'}}, True)
+        question.update_many({'uid': single['uid']}, {'$set': {'finish': 'yes'}}, True)
         # 处理完该问题
-        # 从弹幕库中删除
-
+        # 不再接受相同的问题
+        # 以及相同用户的言论
 except KeyboardInterrupt:
     print("用户终止进程")
     data_base['uid'].delete_many({'uid': regret_uid})
