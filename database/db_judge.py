@@ -16,8 +16,11 @@ try:
             single = doc
         if not get:
             raise SystemExit("The database is NULL now")
+
         if single['finish'] == "yes":
             continue
+        # 跳过已经完成的题目
+
         insert = True
         for result in uid_col.find({"uid": single['uid']}):
             insert = False
