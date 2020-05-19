@@ -53,7 +53,7 @@ try:
         if set_block_user(room, my_csrf, man['uid'])['code'] == -400:
             del_block_user(man['id'], room, my_csrf)
             set_block_user(room, my_csrf, man['uid'])
-            black_list.writelines(man['uid'] + "\n")
+            # black_list.writelines(man['uid'] + "\n")
             print(f"用户{man['uid']}已禁言")
 
     black_list.close()
