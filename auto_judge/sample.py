@@ -23,9 +23,15 @@ class MyBLiveClient(blivedm.BLiveClient):
     _COMMAND_HANDLERS = blivedm.BLiveClient._COMMAND_HANDLERS.copy()
 
     async def _on_receive_danmaku(self, danmaku: blivedm.DanmakuMessage):
+        black_word = {"sb", "yygq"}
         if danmaku.msg_type == 0:
             danmaku_content = f'{danmaku.timestamp}:{danmaku.uid}:{danmaku.msg}\n'
             print(danmaku_content)
+            for one in black_word:
+                if one in danmaku.msg:
+                    c = BackBlock()
+                    t = Thread(target=c.run, args=(room, my_csrf, danmaku.uid))
+                    t.start()
 
 
 class BackBlock:
