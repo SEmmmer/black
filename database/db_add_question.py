@@ -5,7 +5,7 @@ client = pymongo.MongoClient("mongodb://localhost:27017/")
 data_base = client['test']
 question = data_base['question']
 
-question_file = open("file2.txt", "r")
+question_file = open("../NLP/file2.txt", "r")
 for line in question_file:
     if line[0] != '1':
         continue
