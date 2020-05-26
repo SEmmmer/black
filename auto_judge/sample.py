@@ -48,5 +48,5 @@ if __name__ == '__main__':
     room = 763869
     cookies = me.cookies
     my_csrf = cookies['bili_jct']
-    black = {"杨", "sb", "SB", "屑", "猫咪"}
+    black = {}
     asyncio.get_event_loop().run_until_complete(main())
