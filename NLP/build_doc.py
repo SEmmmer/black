@@ -1,7 +1,11 @@
 import os
 import jieba.analyse
 
-PATH = "/Users/yangjinghua/bilibili-vtuber-danmaku/15536/"
+PATH = "/Users/yangjinghua/bilibili-vtuber-danmaku/14917277/"
+
+if_go = input("你确定？")
+if if_go != "yes":
+    exit(1)
 
 jieba.analyse.set_stop_words("NLP/stopwords")
 jieba.load_userdict("NLP/userdict.txt")
@@ -22,8 +26,10 @@ for n in range(2):
                 for line in file:
                     if line[0] != "1":
                         continue
-                    danmaku = line.split(":", 2)[2]
-                    seg_list = jieba.analyse.extract_tags(danmaku)
+                    danmaku = line.split(":", 2)
+                    if len(danmaku) < 3:
+                        continue
+                    seg_list = jieba.analyse.extract_tags(danmaku[2])
                     output = " ".join(seg_list) + " "
                     print(output)
                     sum_file.writelines(output)
