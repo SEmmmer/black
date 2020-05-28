@@ -6,7 +6,7 @@ def c_out():
     for man in black:
         print(man)
         file.writelines(str(man) + "\n")
-        danmaku_file = open("file.txt", "r")
+        danmaku_file = open("file2.txt", "r")
         for line in danmaku_file:
             array = line.split(":", 2)
             if int(array[1]) == int(man):

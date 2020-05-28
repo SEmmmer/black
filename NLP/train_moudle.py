@@ -4,6 +4,10 @@ import multiprocessing
 from gensim.models import Word2Vec
 from gensim.models.word2vec import LineSentence
 
+a = input("are you sure")
+if a != "yes":
+    exit(1)
+
 input_file = open("sum_file.txt", "rb")
 out_module = open("new_module", "wb")
 out_vec = open("new_vec", "wb")

@@ -16,7 +16,7 @@ for line in black_file:
     black.append(line[0])
 black_file.close()
 
-file = open("file.txt", "r")
+file = open("file2.txt", "r")
 for line in file:
     if line[0] == "T":
         continue

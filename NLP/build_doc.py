@@ -9,7 +9,7 @@ if if_go != "yes":
 
 jieba.analyse.set_stop_words("NLP/stopwords")
 jieba.load_userdict("NLP/userdict.txt")
-sum_file = open("sum_file.txt", "w")
+sum_file = open("NLP/sum_file.txt", "w")
 
 for n in range(2):
     year = 2019 + n
