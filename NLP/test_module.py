@@ -1,7 +1,15 @@
 from gensim.models import Word2Vec
 
-trained_module = Word2Vec.load("new_module")
-test_words = ["114", "514", "夸哥", "算了", "apex", "孩子", "休息", "debu"]
+trained_module = Word2Vec.load("NLP/danmaku_module")
+test_words = ["dd",
+              "可乐"
+              # "夏哥",
+              # "电脑",
+              # "呼吸",
+              # "holo",
+              # "血压",
+              # "游戏"
+              ]
 length = len(test_words)
 for i in range(length):
     res = trained_module.most_similar(test_words[i])
