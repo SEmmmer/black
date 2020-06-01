@@ -2,10 +2,10 @@ import os
 import re
 
 
-async def find_dir(now_dir: int, raw_path: str):
+async def find_dir(now_dir: int, raw_path: str) -> str:
     PATH = raw_path + str(now_dir) + "/"
     if not os.path.exists(PATH):
-        return find_dir(now_dir + 1, raw_path)
+        return await find_dir(now_dir + 1, raw_path)
     else:
         return PATH
 
