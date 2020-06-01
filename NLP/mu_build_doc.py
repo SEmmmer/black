@@ -10,7 +10,7 @@ async def find_dir(now_dir: int, raw_path: str) -> str:
         return PATH
 
 
-async def to_one_word():
+# async def to_one_word(raw_text: str):
 
 
 if __name__ == "__main__":

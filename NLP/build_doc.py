@@ -49,7 +49,7 @@ for i in range(22261335):
                             if res:
                                 danmaku = danmaku.replace(res.group(), "233")
 
-                            res = re.search("(啊|阿|a)(我|维|w|伟).{0,10}(死|睡|s)(了|l)", danmaku)
+                            res = re.search("([啊阿a])([我维w伟]).{0,10}([死睡s])([了l])", danmaku)
                             if res:
                                 danmaku = danmaku.replace(res.group(), "awsl")
 
@@ -57,7 +57,7 @@ for i in range(22261335):
                             if res:
                                 danmaku = danmaku.replace(res.group(), "whl")
 
-                            res = re.search("好(色|帅)哦", danmaku)
+                            res = re.search("好([色])哦", danmaku)
                             if res:
                                 danmaku = danmaku.replace(res.group(), "hso")
 
