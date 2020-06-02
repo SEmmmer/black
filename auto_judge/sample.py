@@ -29,6 +29,7 @@ class MyBLiveClient(blivedm.BLiveClient):
         if danmaku.msg_type == 0:
             if await judge(danmaku.msg):
                 mes = await set_block_user(room, my_csrf, danmaku.uid)
+                print(mes)
                 if mes['code'] == 0:
                     print(f"||已禁言: {mes['data']['uname']} |||他发的弹幕是: {danmaku.msg}|||他的uid是: {danmaku.uid}||")
 
@@ -48,5 +49,11 @@ if __name__ == '__main__':
     room = 763869
     cookies = me.cookies
     my_csrf = cookies['bili_jct']
-    black = {}
+    black = {
+        "我是屏蔽词1",
+        "i' bad_word_2.",
+        "在下是屏蔽词3",
+        "4",
+        "5"
+    }
     asyncio.get_event_loop().run_until_complete(main())
