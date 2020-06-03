@@ -20,6 +20,7 @@ class UserFrame(wx.Frame):
         self.menu_bar()
         self.CreateStatusBar()
         self.SetStatusText("")
+        self.danmaku_field()
 
     def menu_bar(self):
         file_menu = wx.Menu()
@@ -45,6 +46,12 @@ class UserFrame(wx.Frame):
 
         self.Bind(wx.EVT_MENU, self.exit, exit_item)
         self.Bind(wx.EVT_MENU, self.about, about_item)
+
+    def danmaku_field(self):
+        confirm = wx.Button(self, label="&鲨了他ud5tdi76r7i6uyhfi\tCtrl-K")
+        confirm_pt = wx.Point(150, 150)
+        confirm.SetPosition(confirm_pt)
+        confirm.Show()
 
     def using(self, event):
         wx.MessageBox("")
