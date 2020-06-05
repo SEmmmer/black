@@ -1,7 +1,6 @@
 import os
 import re
 import jieba.analyse
-
 RAW_PATH = "/Users/yangjinghua/bilibili-vtuber-danmaku/"
 
 if_go = input("你确定？")
